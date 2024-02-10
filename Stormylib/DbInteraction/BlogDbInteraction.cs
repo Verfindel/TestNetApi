@@ -11,8 +11,8 @@ public class BlogDbInteraction(BloggingContext context) : IDbInteraction<Blog>
     public async Task<Blog?> GetAsync(int id) => _context.Blogs switch
 	{
 		DbSet<Blog> blogs => await blogs
-                                    .Include(b => b.Posts)
-                                    .FirstOrDefaultAsync(b => b.BlogId == id),
+            .Include(b => b.Posts)
+            .FirstOrDefaultAsync(b => b.BlogId == id),
 		_ => null,
 	};
 
